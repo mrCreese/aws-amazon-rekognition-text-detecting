@@ -1,0 +1,253 @@
+//*** import external libraries ***
+//-- bootstrap 5.2
+//@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css");
+//-- bulma
+@import url("https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css");
+//-- fontawesome.css
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css");
+//-- bootstrap icons
+//@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+//-- google material symbols
+//@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+//-- animate.css
+//@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
+//-- fonts
+//@import url("https://fonts.googleapis.com/css?family=Michroma");
+
+//*** import project colors ***
+@import "colors";
+
+$font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+
+$root-prefix: --root-;
+$root-map: (
+  color: default,
+  background-color: #fff,//$white-soft,
+  color-dark: $text-dark-2,
+  background-color-dark: $black-soft,
+  font-family: $font-family,
+  font-size: 16px,
+  font-weight: 400,
+  body: (
+    min-height: 0vh,
+    line-height: 1.6,
+  ),
+);
+
+//*** vars functions used in vue components
+//-- define local variable
+@mixin def-var($name, $value) {
+  #{--$name}: $value;
+}
+//-- access any variable
+@function v($name) {
+  @return var(--#{$name});
+}
+
+//*** Spak variables
+//--btn
+$spak-btn-bg-color: $primary;
+$spak-btn-txt-color: $white;
+$spak-btn-border-color: $primary;
+
+$spak-btn-bg-active: darken($spak-btn-bg-color, 20%);
+$spak-btn-border-active: darken($spak-btn-bg-color, 20%);
+$spak-btn-font-active: $spak-btn-txt-color;
+$spak-btn-padding-x: 0.75rem;
+$spak-btn-padding-y: 0.375rem;
+$spak-btn-border-radius: 0.375rem;
+$spak-btn-box-shadow: none; //inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
+$spak-btn-disabled-opacity: 0.65;
+$spak-btn-outline-color: $spak-btn-bg-color;
+$spak-btn-focus-box-shadow: 0 0 0 0.25rem rgba($spak-btn-bg-color, 0.5);
+$spak-btn-transition: color 0.15s ease-in-out,
+  background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+  box-shadow 0.15s ease-in-out !default;
+
+//--btn.color-2
+$spak-btn-2-bg-color: transparent;
+$spak-btn-2-txt-color: $primary-text;
+$spak-btn-2-border-color: transparent;
+$spak-btn-2-bg-active:#cde5f9;
+$spak-btn-2-border-active: #cde5f9;
+$spak-btn-2-font-active: $secondary;
+$spak-btn-2-outline-color: #cde5f9;
+$spak-btn-2-box-shadow: none;
+$spak-btn-2-focus-box-shadow: 0 0 0 0.25rem rgba(#cde5f9, 0.5);
+
+//--btn-close
+$spak-btn-close-bg-color: transparent;
+$spak-btn-close-txt-color: $primary-text;
+
+//--btn-refresh
+$spak-btn-refresh-bg-color: transparent;
+$spak-btn-refresh-txt-color: $primary-text;
+
+//--btn-checked
+$spak-btn-check-bg-color: $primary;
+$spak-btn-check-txt-color: $white;
+
+//--box
+$spak-box-bg: $white;
+$spak-box-color: inherit;
+$spak-box-border-radius: 6px;
+$spak-box-padding: 1.25rem;
+
+//--form
+$spak-form-input-padding: calc(0.5em - 1px) calc(0.75em - 1px);
+$spak-placeholder-color: rgba(#000, 0.75);
+$spak-form-icon-input-icon-color: $primary-text;
+
+//-- BULMA FORM OVERRIDE !!!
+$spak-bulma-form-focus-border-color: rgba(darken($primary, 10%), 0.4);
+$spak-bulma-form-focus-box-shadow-color: rgba(lighten($primary, 5%), 0.75);
+$spak-bulma-form-focus-box-shadow-input: none; //inset 0 0.0625em 0.125em $spak-bulma-form-focus-box-shadow-color;
+$spak-bulma-form-focus-box-shadow-is-active-input: 0 0 0 0.125em
+  $spak-bulma-form-focus-box-shadow-color;
+$spak-bulma-form-focus-box-shadow-textarea: none; //inset 0 0.0625em 0.125em $spak-bulma-form-focus-box-shadow-color;
+$spak-bulma-form-field-border-radius: 0.375rem;
+$spak-bulma-form-bg-color: $white;
+$spak-bulma-form-color: $black-mute;
+$spak-bulma-form-border-color: #dbdbdb;
+
+//--form-check-input
+$spak-form-check-bg-color: $secondary;
+$spak-form-check-border-color: $secondary;
+
+//--form-input-custom
+$spak-form-floating-bl-border-color: $primary-text;
+$spak-form-floating-bl-label-color: $primary-text;
+
+//--form-floating
+$spak-float-container-margin: auto; //1rem 0 0 0;
+$spak-float-field-color: inherit;
+$spak-float-border-color: rgba(lighten($secondary, 20%), 0.15);
+$spak-float-border-color-focus: rgba(lighten($secondary, 20%), 0.65);
+$spak-float-placeholder-color: rgba(darken($primary-text, 30%), 0.6);
+$spak-float-label-color: $spak-float-placeholder-color;
+$spak-float-label-color-active: darken($spak-float-border-color-focus, 20%);
+$spak-float-label-bg: $white;
+$spak-float-padding: calc(0.54em - 1px) calc(0.75em - 1px);
+$spak-float-padding-label: calc(0.5em - 1px) calc(0.75em - 1px); //0.375rem 0.75rem;
+$spak-float-padding-label-focus: 0 calc(0.75em - 1px);
+$spak-float-transition: all 0.25s ease-in-out;
+$spak-float-label-font-size: 1rem;
+$spak-float-label-transform: scale(0.85) translateY(-1rem) translateX(0.15rem);
+
+//--cards
+$spak-card-bg-color: $white;
+$spak-card-txt-color: $secondary-text;
+$spak-card-header-bg-color: transparent;
+$spak-card-header-txt-color: inherit;
+$spak-card-header-title-bg-color: transparent;
+$spak-card-header-title-txt-color: $white;
+$spak-card-shadow-color: #0a0a0a1a;
+$spak-card-content-bg-color: transparent;
+$spak-card-content-txt-color: inherit;
+$spak-card-footer-bg-color: transparent;
+$spak-card-footer-txt-color: inherit;
+$spak-card-footer-border-color: #ededed;
+
+//-- checkbox & radio
+$spak-check-bg: transparent;
+$spak-check-bg-checked: $primary-text;
+$spak-check-color: $white;
+$spak-check-border-color: $primary-text;
+$spak-radio-inset-color: $primary;
+$spak-radio-bg-checked: $white;
+
+//--links
+$spak-link-color: $primary-text;
+
+//--table
+$spak-table-bg-color: inherit;
+$spak-table-txt-color: inherit;
+$spak-table-header-bg-color: $secondary;
+$spak-table-header-txt-color: $white;
+$spak-table-border-color: #dee2e6;
+$spak-table-hover-bg: #00000013;
+$spak-table-hover-color: #212529;
+$spak-table-th-bg: inherit;
+$spak-table-th-txt: $secondary-text;
+
+//--text
+$spak-title-color: $primary-text;
+$spak-title-fs: 1.7rem;
+$spak-title-fw: 600;
+$spak-title-padding-x: 0.8em;
+$spak-title-padding-y: 0.8em;
+$spak-title-line-height: 1.125;
+$spak-subtitle-color: $secondary-text;
+$spak-subtitle-fs: 0.8rem;
+$spak-subtitle-fw: 400;
+
+//!!! SPAK COMPONENTS VARS !!!
+$spak-prefix: --spak-comp-;
+$spak-comp: (
+  offcanvas: (
+    bg-color: rgba($secondary, 0.9),
+    color: lighten($primary-text, 20%),
+    background-bg-color: #93939380,
+  ),
+  tooltip: (
+    bg-color: rgba($secondary, 0.95),
+    color: $white-soft,
+  ),
+  cursor: (
+    color1: $primary,
+    color2: $secondary,
+  ),
+);
+
+//*** creation of css variables for vue components
+:root {
+  //-- each item in root map
+  @each $name, $root in $root-map {
+    //-- second loop for submaps
+    @if type-of($root) == "map" {
+      @each $subname, $subroot in $root {
+        //-- --root-body-subname
+        #{$root-prefix}#{$name}-#{$subname}: $subroot;
+      }
+    } @else {
+      //-- --color-primary
+      #{$root-prefix}#{$name}: $root;
+    }
+  }
+
+  //-- first loop each group in spak map
+  @each $group, $s1 in $spak-comp {
+    @if type-of($s1) == "map" {
+      //-- second loop for submaps
+      @each $subname, $s2 in $s1 {
+        @if type-of($s2) == "map" {
+          //-- third loop
+          @each $subname2, $s3 in $s2 {
+            @if type-of($s3) == "map" {
+              //-- fourth loop
+              @each $subname3, $s4 in $s3 {
+                @if type-of($s4) == "map" {
+                  //-- fifth loop
+                  @each $subname4, $s5 in $s4 {
+                    #{$spak-prefix}#{$group}-#{$subname}-#{$subname2}-#{$subname3}-#{$subname4}: $s5;
+                  }
+                } @else {
+                  #{$spak-prefix}#{$group}-#{$subname}-#{$subname2}-#{$subname3}: $s4;
+                }
+              }
+            } @else {
+              #{$spak-prefix}#{$group}-#{$subname}-#{$subname2}: $s3;
+            }
+          }
+        } @else {
+          #{$spak-prefix}#{$group}-#{$subname}: $s2;
+        }
+      }
+      //-- s1
+    } @else {
+      #{$spak-prefix}#{$group}: $s1;
+    }
+  }
+}

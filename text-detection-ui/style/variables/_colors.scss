@@ -1,0 +1,49 @@
+//!!! project colors
+// can import this file in vue components
+
+$primary: #27465f; //--btn bg color
+$primary-text: #488dc5; //--btn txt
+$secondary: #fd5f5fd0; //--secondary elements bg
+$secondary-text: #0c1b27; //--secondary elements txt //ex.card tab
+
+$navbar: #3333332e;
+$navbar-shrink: #33333373;
+
+$white: #fff;
+$white-soft: #f8f8f8;
+$white-mute: #f2f2f2;
+$black: #181818;
+$black-soft: #222222;
+$black-mute: #282828;
+$indigo: #2c3e50;
+$text-light-1: $indigo;
+$text-light-2: #3c3c3ca8;
+$text-dark-1: $white;
+$text-dark-2: #ebebeba3;
+$error-color: #fd5f5fd0;
+
+//!!! COLOR FUNCTIONS !!!
+// Return opaque color
+// opaque(#fff, rgba(0, 0, 0, .5)) => #808080
+@function opaque($background, $foreground) {
+  @return mix(rgba($foreground, 1), $background, opacity($foreground) * 100);
+}
+
+// Tint a color: mix a color with white
+@function tint-color($color, $weight) {
+  @return mix(white, $color, $weight);
+}
+
+// Shade a color: mix a color with black
+@function shade-color($color, $weight) {
+  @return mix(black, $color, $weight);
+}
+
+// Shade the color if the weight is positive, else tint it
+@function shift-color($color, $weight) {
+  @return if(
+    $weight > 0,
+    shade-color($color, $weight),
+    tint-color($color, -$weight)
+  );
+}
